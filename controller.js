@@ -1,4 +1,4 @@
-const todolist = [{ id: 1, title: 'list n', marked: true }];
+const todolist = [{ id: 1, title: "list n", marked: true }];
 const addlist = (req, res, next) => {
   const { title, duedate, marked } = req.body;
   todolist.push({ id: todolist.length + 1, title, duedate, marked });
@@ -8,7 +8,7 @@ const addlist = (req, res, next) => {
   });
 };
 const getList = (req, res, next) => {
-  console.log('get list');
+  console.log("get list");
   return res.status(200).json({
     success: true,
     data: todolist,
@@ -17,7 +17,7 @@ const getList = (req, res, next) => {
 const getById = (req, res, next) => {
   let todoId = Number(req.params.Id);
   let item = todolist.find((todo) => todo.id === todoId);
-  console.log('item', item, todoId);
+  console.log("item", item, todoId);
   return res.status(200).json({
     success: true,
     data: item,
@@ -26,11 +26,14 @@ const getById = (req, res, next) => {
 
 const deleteitem = (req, res, next) => {
   let todoId = Number(req.params.Id);
-  let item = todolist.filter((todo, index) => todo.id == todoId);
+
+  let index = -1;
+  index = todolist.findIndex((singleitem) => singleitem.id === todoId);
+
+  todolist.splice(index, 1);
 
   return res.status(200).json({
     success: true,
-    data: item,
   });
 };
 
