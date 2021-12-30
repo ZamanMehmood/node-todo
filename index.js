@@ -12,8 +12,10 @@ app.use(express.json());
 
 app.use("/todo", todoRoutes);
 
-const server = app.listen(5000, () => {
-  console.log(`server is running on port 5000`);
+const PORT = process.env.PORT || 5000;
+
+const server = app.listen(PORT, () => {
+  console.log(`server is running on port =${PORT}`);
 });
 
 module.exports = app;
