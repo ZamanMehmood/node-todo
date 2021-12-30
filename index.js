@@ -15,7 +15,7 @@ app.use("/todo", todoRoutes);
 const PORT = process.env.PORT || 5000;
 
 const server = app.listen(PORT, () => {
-  console.log(`server is running on port =${PORT}`);
+  console.log(`server  i s running on port =${PORT}`);
 });
 
 module.exports = app;
